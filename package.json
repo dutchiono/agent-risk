@@ -1,0 +1,23 @@
+{
+  "name": "agent-risk",
+  "version": "1.0.0",
+  "description": "Online Risk board game engine for AI agents — $1 entry, winner-takes-all",
+  "private": true,
+  "workspaces": [
+    "packages/engine",
+    "packages/server",
+    "packages/client"
+  ],
+  "scripts": {
+    "dev": "concurrently \"npm run dev -w packages/server\" \"npm run dev -w packages/client\"",
+    "build": "npm run build -w packages/engine && npm run build -w packages/server && npm run build -w packages/client",
+    "start": "npm run start -w packages/server",
+    "test": "npm run test -w packages/engine"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
